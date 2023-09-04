@@ -1,0 +1,21 @@
+<nav class="bg-ff7-gradient text-white border border-white font-custom rounded-md z-50">
+  <ul class="flex justify-around py-2">
+    <li><a class="hover:font-bold" routerLink="/">Home</a></li>
+    <li><a class="hover:font-bold" routerLink="/about">About</a></li>
+    <li>
+      <!-- Extend the hoverable area by wrapping both the link and the dropdown -->
+      <div class="relative group inline-block hover:z-50">
+        <!-- No gap between this element and the dropdown -->
+        <a class="hover:font-bold cursor-pointer" routerLink="/projects">Projects</a>
+        <div class="absolute left-0 hidden group-hover:block z-50 mt-0 rounded-md bg-ff7-gradient text-white border border-white font-custom">
+          <ul>
+            <li><a class="block px-4 py-2 hover:font-bold" routerLink="/projects/software">Software Development</a></li>
+            <li><a class="block px-4 py-2 hover:font-bold" routerLink="/projects/digital-art">Digital Art</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li><a class="hover:font-bold" routerLink="/blog">Blog</a></li>
+    <li><a class="hover:font-bold" routerLink="/contact">Contact</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,21 @@
+.nav-wrapper {
+  position: relative;
+}
+
+.nav-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: calc(0.375rem + 4px);  /* 0.375rem is the border-radius of inner-nav, 4px is the border width */
+  background: linear-gradient(to right, gray, transparent, gray);
+  margin: -4px; /* Negative margin equal to border width */
+}
+
+.inner-nav {
+  position: relative; /* To make sure it stays above the ::before element */
+  z-index: 1;
+}

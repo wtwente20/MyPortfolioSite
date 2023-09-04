@@ -1,0 +1,20 @@
+.hero-section {
+  background-image: url('/assets/images/herosection.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.custom-button {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 24px;
+  font-family: 'Reactor7', sans-serif; /* Replace with the actual name */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
