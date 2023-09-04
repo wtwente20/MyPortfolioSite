@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EmailService {
+  
+  private functionUrl = 'https://console.firebase.google.com/project/westley-twente-portfolio-site/overview';
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +18,7 @@ export class EmailService {
       message
     };
 
-    return this.http.post('YOUR_API_ENDPOINT', body);
+    return this.http.post(this.functionUrl, body);
   }
 }
+
