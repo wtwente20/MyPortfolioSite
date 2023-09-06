@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmailService } from '../services/email.service';
 
-
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -20,11 +19,14 @@ export class ContactComponent {
 
     this.emailService.sendEmail(email, name, subject, message).subscribe(
       response => {
-        // handle response
+        console.log('Email sent successfully', response);
+        alert('Email sent successfully.');
       },
       error => {
-        // handle error
+        console.error('There was an error sending the email', error);
+        alert('There was an error sending the email.');
       }
     );
   }
 }
+

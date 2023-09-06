@@ -16,7 +16,7 @@ const logger = require("firebase-functions/logger");
 
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
-const cors = require('cors')({origin: true});
+const cors = require('cors')({ origin: true });
 
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
@@ -30,25 +30,45 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.sendEmail = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
+  // Enable CORS using the `cors` express middleware.
+  exports.sendEmail = functions.https.onRequest((req, res) => {
+    cors(req, res, () => {
+      if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Origin', '*');
+        res.set('Access-Control-Allow-Methods', 'GET, POST');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+      } else {
+
+    // Destructure the body
     const { email, name, subject, message } = req.body;
 
+    // Mail options
     const mailOptions = {
       from: gmailEmail,
-      to: 'destination-email@gmail.com',  // Replace this with your own email
+      to: email,
       subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
     };
 
+    // Send mail
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
+        console.error(error);
         res.status(500).send(error.toString());
       } else {
+        console.log('Mail sent:', info.response);
         res.status(200).send('Email sent: ' + info.response);
+      }
+    })
       }
     });
   });
 });
+
+
 
 
 // exports.helloWorld = onRequest((request, response) => {

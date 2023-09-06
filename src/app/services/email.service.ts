@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class EmailService {
   
-  private functionUrl = 'https://console.firebase.google.com/project/westley-twente-portfolio-site/overview';
+  private functionUrl = 'https://us-central1-westley-twente-portfolio-site.cloudfunctions.net/sendEmail';
 
   constructor(private http: HttpClient) { }
 
