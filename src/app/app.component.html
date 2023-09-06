@@ -1,3 +1,14 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="flex flex-col h-screen bg-analogous-gradient">
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <app-navbar></app-navbar>
+  </header>
+
+  <div class="pt-10 pb-100 overflow-y-auto">
+      <router-outlet></router-outlet>
+    </div>
+
+  <footer class="fixed bottom-0 left-0 right-0 z-50">
+      <app-footer></app-footer>
+    </footer>
+  
+</div>

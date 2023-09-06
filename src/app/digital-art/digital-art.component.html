@@ -1,1 +1,21 @@
-<p>digital-art works!</p>
+<div class="digital-art-container">
+  <!-- Section for Project Oliver -->
+  <div class="artwork-section">
+    <h2 class="bg-ff7-gradient text-white border border-white font-custom rounded-md p-6">Project Oliver</h2>
+    <div class="artwork-container">
+      <ng-container *ngFor="let artwork of artworks">
+        <app-artwork-card *ngIf="artwork.category === 'Project Oliver'" [artwork]="artwork"></app-artwork-card>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Section for Other Artworks -->
+  <div class="artwork-section">
+    <h2 class="bg-ff7-gradient text-white border border-white font-custom rounded-md p-6">Other Artworks</h2>
+    <div class="artwork-container">
+      <ng-container *ngFor="let artwork of artworks">
+        <app-artwork-card *ngIf="artwork.category === 'Other'" [artwork]="artwork"></app-artwork-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

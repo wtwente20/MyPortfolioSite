@@ -1,0 +1,16 @@
+<div class="artwork-card bg-ff7-gradient text-white border border-white font-custom rounded-md p-12" (click)="showModal = true">
+  <div class="artwork-image">
+    <img [src]="artwork.image" alt="{{artwork.description}}">
+  </div>
+  <div class="artwork-info">
+    <p class="mb-4">{{artwork.description}}</p>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="showModal" class="overlay">
+  <div class="modal">
+    <span class="close-button" (click)="showModal = false">&times;</span>
+    <img [src]="artwork.image" alt="{{artwork.description}}">
+  </div>
+</div>
